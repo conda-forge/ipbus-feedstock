@@ -11,7 +11,7 @@ source:
       - patches/use-sysconfig-instead-of-python-config.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
   run_exports:
     - {{ pin_subpackage('ipbus', max_pin='x.x.x') }}
