@@ -1,0 +1,51 @@
+From 5cb59d3f73dac37498c29611c6c73a84576a01b9 Mon Sep 17 00:00:00 2001
+From: Szymon Kulis <szymon.kulis@cern.ch>
+Date: Mon, 15 Dec 2025 18:51:35 +0100
+Subject: [PATCH] Remove boost_system library dependency for Boost 1.89+
+ compatibility
+
+The boost_system compiled library was removed in Boost 1.89 (it has been
+header-only since Boost 1.69). Remove the linker dependency from uhal,
+tests, and python Makefiles to allow compilation with newer Boost versions.
+---
+ uhal/python/Makefile | 1 -
+ uhal/tests/Makefile  | 1 -
+ uhal/uhal/Makefile   | 1 -
+ 3 files changed, 3 deletions(-)
+
+diff --git a/uhal/python/Makefile b/uhal/python/Makefile
+index 011090046..f576def09 100644
+--- a/uhal/python/Makefile
++++ b/uhal/python/Makefile
+@@ -56,7 +56,6 @@ Libraries = \
+ 		\
+ 		boost_filesystem \
+ 		boost_regex \
+-		boost_system \
+ 		\
+ 		pthread \
+ 		dl \
+diff --git a/uhal/tests/Makefile b/uhal/tests/Makefile
+index 9087805eb..412f27c5a 100644
+--- a/uhal/tests/Makefile
++++ b/uhal/tests/Makefile
+@@ -44,7 +44,6 @@ Libraries = \
+ 		boost_program_options \
+ 		boost_unit_test_framework \
+ 		boost_regex \
+-		boost_system \
+ 		\
+ 		pugixml \
+ 		\
+diff --git a/uhal/uhal/Makefile b/uhal/uhal/Makefile
+index 976e9aed7..799db11e7 100644
+--- a/uhal/uhal/Makefile
++++ b/uhal/uhal/Makefile
+@@ -39,7 +39,6 @@ Libraries = pthread \
+ 		\
+ 		boost_filesystem \
+ 		boost_regex \
+-		boost_system \
+ 		boost_chrono \
+ 		\
+ 		cactus_uhal_grammars \
