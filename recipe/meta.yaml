@@ -9,9 +9,10 @@ source:
     sha256: c31bf52bc834aef839377d86bc79651d08b943093c542a6b6a12a45cedd7b3ad
     patches:
       - patches/use-sysconfig-instead-of-python-config.patch
+      - patches/remove-boost-system-dependency.patch  # https://github.com/ipbus/ipbus-software/pull/350
 
 build:
-  number: 3
+  number: 4
   skip: true  # [not linux]
   run_exports:
     - {{ pin_subpackage('ipbus', max_pin='x.x.x') }}
