@@ -12,7 +12,7 @@ source:
       - patches/remove-boost-system-dependency.patch  # https://github.com/ipbus/ipbus-software/pull/350
 
 build:
-  number: 3
+  number: 4
   skip: true  # [not linux]
   run_exports:
     - {{ pin_subpackage('ipbus', max_pin='x.x.x') }}
